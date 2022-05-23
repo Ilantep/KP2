@@ -1,0 +1,46 @@
+﻿<Page x:Class="WpfApp1.ImportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ImportPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button Grid.Row="3" Content="Выход" Name="Backbtn" Click="Backbtn_Click"  Margin="20 0 20 0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18"></Button>
+            <Button Grid.Row="3" Content="Добавить" Name="Addbtn" Click="Addbtn_Click"  Margin="20 0 20 0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18"></Button>
+            <Button Grid.Row="3" Content="Удалить" Name="Deletbtn" Click="Deletbtn_Click"  Margin="20 0 20 0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18"></Button>
+        </StackPanel>
+        <TextBlock
+            Text="Информация о поставках"
+            Grid.Row="0"
+            FontSize="32" HorizontalAlignment="Center"
+            />
+        <DataGrid Name="DGridImport" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Спецодежды" Binding="{Binding Workwea_code}" Width="*"/>
+                <DataGridTextColumn Header="Дата поставки" Binding="{Binding Date, StringFormat=d }" Width="*"/>
+                <DataGridTextColumn Header="Номер документа" Binding="{Binding Document_number}" Width="*"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="*"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="Editbtn" Click="Editbtn_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        
+    </Grid>
+</Page>
